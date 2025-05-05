@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1015017625790",
+    "project_id": "dmcgap-69ea5",
+    "storage_bucket": "dmcgap-69ea5.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1015017625790:android:4afa138f294fa1317726ef",
+        "android_client_info": {
+          "package_name": "com.GAP.dmcgap"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYe7huXBNRTJrHC6WPDpNJeSc2Q1oGJY0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
