@@ -517,7 +517,7 @@ fun MainScreen(
                 ) {
                     Column(Modifier.padding(12.dp), Arrangement.spacedBy(4.dp)) {
                         Text("ZFM : ${"%.1f".format(res.zfmMass)} kg")
-                        Text("CG%Mac : ${"%.1f".format(res.towCg)} kg")
+                        Text("CG%Mac : ${"%.1f".format(res.towCg)} ")
                         Text("     Trim    : ${"%.1f".format(res.trim)}")
                     }
                 }
