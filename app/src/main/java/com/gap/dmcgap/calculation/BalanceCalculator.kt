@@ -396,7 +396,7 @@ data class BalanceResult(
     val trim: Double, val warnings: List<String>
 )
 data class DmcConfig(
-    val baseMass: Double     = 13461.0,
+    val baseMass: Double     = 13479.0, //mise à jour  le 03/08/2025
     val baseArm:  Double     = 14.07,
     val poidsParPax: Double  = 85.0,
     val brasPilot: Double    = 5.50,

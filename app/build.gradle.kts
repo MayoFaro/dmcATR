@@ -1,3 +1,15 @@
+import java.util.Properties
+import org.gradle.api.GradleException
+
+// Chargement de local.properties
+val keystoreProps = Properties().apply {
+    val propFile = rootProject.file("local.properties")
+    if (propFile.exists()) {
+        propFile.inputStream().use { load(it) }
+    }
+}
+fun prop(key: String) = keystoreProps.getProperty(key, "")
+
 plugins {
     // Pour tester, remplace temporairement vos alias par les IDs directs :
     id("com.android.application")
@@ -8,51 +20,57 @@ plugins {
 }
 
 android {
-        namespace = "com.gap.dmcgap"
-        compileSdk = 35
-        buildFeatures {
-            buildConfig = true // Active la génération
-        }
-        defaultConfig {
-            applicationId = "com.gap.dmcgap"
-            minSdk = 25
-            targetSdk = 35
-            versionCode = 1
-            versionName = "1.0"
+    namespace = "com.gap.dmcgap" // ou ton namespace réel
+    compileSdk = 35 // adapte à ton projet
 
-        }
-        signingConfigs {
-            create("releaseConfig") {
-                // Chemin vers ton keystore (relatif au dossier du module app)
-                storeFile = file("D:/DepDocs/Keystores/dmcgap-release.jks")
-                // Mot de passe du keystore
-                storePassword = "dmcgap2025"
-                // Alias que tu as choisi
-                keyAlias = "dmcgap-key"
-                // Mot de passe de l’alias (si différent)
-                keyPassword = "dmcgap2025"
+    defaultConfig {
+        applicationId = "com.gap.dmcgap"
+        minSdk = 25
+        targetSdk = 35
+        versionCode = 1
+        versionName = "1.0"
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    // Pour Kotlin : jvmTarget à 17
+    kotlinOptions {
+        jvmTarget = "17"
+    }
+    signingConfigs {
+        create("releaseConfig") {
+            val storeFilePath = prop("RELEASE_STORE_FILE")
+            if (storeFilePath.isBlank()) {
+                // Pas de keystore renseigné : on ne configure pas la signature
+                println("⚠️ RELEASE_STORE_FILE non défini : release non signé")
+            } else {
+                val store = file(storeFilePath)
+                if (!store.exists()) {
+                    throw GradleException("Keystore introuvable à l'emplacement spécifié : $storeFilePath")
+                }
+                storeFile = store
+                storePassword = prop("RELEASE_STORE_PASSWORD")
+                keyAlias = prop("RELEASE_KEY_ALIAS")
+                keyPassword = prop("RELEASE_KEY_PASSWORD")
             }
         }
-        buildTypes {
-            release {
-                isMinifyEnabled = false
-                // signingConfig défini précédemment
+    }
+
+    buildTypes {
+        getByName("release") {
+            if (prop("RELEASE_STORE_FILE").isNotBlank()) {
                 signingConfig = signingConfigs.getByName("releaseConfig")
             }
-            debug { }
+            isMinifyEnabled = false
         }
-
-        compileOptions {
-            sourceCompatibility = JavaVersion.VERSION_11
-            targetCompatibility = JavaVersion.VERSION_11
+        getByName("debug") {
+            // debug utilise la signature automatique d'Android (pas besoin de keystore custom)
         }
-        kotlinOptions {
-            jvmTarget = "11"
-        }
-        buildFeatures {
-            compose = true
-        }
+    }
 }
+
 
 dependencies {
 
