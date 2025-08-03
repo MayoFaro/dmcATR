@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1015017625790:android:4afa138f294fa1317726ef",
+        "mobilesdk_app_id": "1:1015017625790:android:94fa5f7ffbedc0cd7726ef",
         "android_client_info": {
-          "package_name": "com.GAP.dmcgap"
+          "package_name": "com.gap.dmcgap"
         }
       },
       "oauth_client": [],

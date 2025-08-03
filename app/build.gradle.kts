@@ -1,43 +1,57 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
+    // Pour tester, remplace temporairement vos alias par les IDs directs :
+    id("com.android.application")
+    id("org.jetbrains.kotlin.android")
     alias(libs.plugins.kotlin.compose)
+    // (Vous pouvez remettre alias(libs.plugins.kotlin.compose) si vous le souhaitez)
     id("com.google.gms.google-services")
 }
 
 android {
-    namespace = "com.GAP.dmcgap"
-    compileSdk = 35
-
-    defaultConfig {
-        applicationId = "com.GAP.dmcgap"
-        minSdk = 25
-        targetSdk = 35
-        versionCode = 1
-        versionName = "1.0"
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
-
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
+        namespace = "com.gap.dmcgap"
+        compileSdk = 35
+        buildFeatures {
+            buildConfig = true // Active la génération
         }
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-    kotlinOptions {
-        jvmTarget = "11"
-    }
-    buildFeatures {
-        compose = true
-    }
+        defaultConfig {
+            applicationId = "com.gap.dmcgap"
+            minSdk = 25
+            targetSdk = 35
+            versionCode = 1
+            versionName = "1.0"
+
+        }
+        signingConfigs {
+            create("releaseConfig") {
+                // Chemin vers ton keystore (relatif au dossier du module app)
+                storeFile = file("D:/DepDocs/Keystores/dmcgap-release.jks")
+                // Mot de passe du keystore
+                storePassword = "dmcgap2025"
+                // Alias que tu as choisi
+                keyAlias = "dmcgap-key"
+                // Mot de passe de l’alias (si différent)
+                keyPassword = "dmcgap2025"
+            }
+        }
+        buildTypes {
+            release {
+                isMinifyEnabled = false
+                // signingConfig défini précédemment
+                signingConfig = signingConfigs.getByName("releaseConfig")
+            }
+            debug { }
+        }
+
+        compileOptions {
+            sourceCompatibility = JavaVersion.VERSION_11
+            targetCompatibility = JavaVersion.VERSION_11
+        }
+        kotlinOptions {
+            jvmTarget = "11"
+        }
+        buildFeatures {
+            compose = true
+        }
 }
 
 dependencies {
@@ -62,4 +76,6 @@ dependencies {
     implementation("com.google.firebase:firebase-analytics")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.7")
     implementation (libs.androidx.compose.material)
+    implementation(libs.firebase.config.ktx)
+
 }

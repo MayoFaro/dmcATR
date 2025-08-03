@@ -1,0 +1,11 @@
+C:\Users\cedric\AndroidStudioProjects\dmcGap\app\src\main\java\com\gap\dmcgap\MainActivity.kt
+C:\Users\cedric\AndroidStudioProjects\dmcGap\app\src\main\java\com\gap\dmcgap\ui\theme\Type.kt
+C:\Users\cedric\AndroidStudioProjects\dmcGap\app\src\main\java\com\gap\dmcgap\ui\AbsoluteResultPicker.kt
+C:\Users\cedric\AndroidStudioProjects\dmcGap\app\src\main\java\com\gap\dmcgap\calculation\BalanceCalculator.kt
+C:\Users\cedric\AndroidStudioProjects\dmcGap\app\src\main\java\com\gap\dmcgap\ui\ComposeWheelPicker.kt
+C:\Users\cedric\AndroidStudioProjects\dmcGap\app\src\main\java\com\gap\dmcgap\ui\theme\CompotWheelDeepseek.kt
+C:\Users\cedric\AndroidStudioProjects\dmcGap\app\src\main\java\com\gap\dmcgap\ui\theme\Color.kt
+C:\Users\cedric\AndroidStudioProjects\dmcGap\app\src\main\java\com\gap\dmcgap\ui\ScrollingNumberPicker.kt
+C:\Users\cedric\AndroidStudioProjects\dmcGap\app\src\main\java\com\gap\dmcgap\ui\IcPickers.kt
+C:\Users\cedric\AndroidStudioProjects\dmcGap\app\src\main\java\com\gap\dmcgap\ui\theme\Theme.kt
+C:\Users\cedric\AndroidStudioProjects\dmcGap\app\src\main\java\com\gap\dmcgap\ui\chartEnveloppe.kt

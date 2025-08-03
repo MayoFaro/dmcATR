@@ -20,6 +20,7 @@ androidx-compose-material = { module = "androidx.wear.compose:compose-material",
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "foundation" }
 androidx-foundation-v180 = { module = "androidx.compose.foundation:foundation", version.ref = "foundationVersion" }
+firebase-config-ktx = { module = "com.google.firebase:firebase-config-ktx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
