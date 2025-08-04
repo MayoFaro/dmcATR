@@ -185,8 +185,8 @@ fun MainScreen(
         PickerConfig(R.drawable.ic_fret,        0..7000,50)
     )
     val defaultValues = mapOf(
-        configs[0] to 2400,
-        configs[1] to  800,
+        configs[0] to 2700,
+        configs[1] to  850,
         configs[2] to   26,
         configs[3] to 1200
     )

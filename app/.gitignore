@@ -1,1 +1,21 @@
-/build
+# Gradle build
+.gradle/
+build/
+.gradleOLD/
+
+# Local config / secrets
+local.properties
+*.jks
+
+# IntelliJ/Android Studio
+*.iml
+*.ipr
+*.iws
+.idea/          # plus simple : ignorer tout .idea (à raffiner si tu veux partager certains settings)
+
+# Logs etc.
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
